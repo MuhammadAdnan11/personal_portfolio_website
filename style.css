@@ -4,6 +4,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -51,15 +52,20 @@ h1, h2, h3, h4 {
 
 /* Hero */
 .hero {
-  background: url('https://source.unsplash.com/1600x900/?programming') no-repeat center center/cover;
-  height: 100vh;
+  /* background: url('./banner.jpg') no-repeat center center/cover; */
+  height: 50vh;
   position: relative;
+ 
+background: #2563eb;
+
+      /* background: linear-gradient(to right, #2563eb, #1e40af); */
   color: white;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .overlay {
@@ -68,19 +74,84 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  /* background-color: #2563eb; */
+       background: linear-gradient(to right, #2563eb, #1e40af); 
+
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 700px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23f5f5f5" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,122.7C672,128,768,192,864,202.7C960,213,1056,171,1152,154.7C1248,139,1344,149,1392,154.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat bottom center;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.social-icons {
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+ 
 }
 
 .social-icons a {
-  color: white;
-  margin: 0 10px;
-  font-size: 20px;
+
+   border-radius: 50%;
+   margin: 0 10px;
+  font-size: 22px;
+  transition: color 0.3s;
+
+  /* color: white; */
+  .fa-facebook{
+           color: rgb(47, 47, 233);
+  box-shadow: ;
+  }
+  
+  .fa-twitter {
+    color: #1DA1F2;
+    
+  }
+ 
+  .fa-instagram{
+    color: rgb(220, 83, 49)
+  }
+    .fa-tiktok{
+    color: rgb(4, 2, 2)
+  }
+   .fa-linkedin {
+    color: #64b2e3;
+    
+  }
+  
+}
+
+.social-icons a i:hover {
+  color: #2563eb; 
+   
 }
 
 /* Services */
@@ -256,3 +327,248 @@ h1, h2, h3, h4 {
   text-align: center;
   padding: 20px;
 }
+
+/***** About Section *****/  
+
+/* About Hero */
+.about-hero {
+  background: linear-gradient(to right, #2563eb, #1e40af);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.about-hero h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  font-size: 18px;
+  color: #e5e5e5;
+}
+
+/* Extended About Section */
+.about-section {
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-img img {
+  width: 260px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-text {
+  max-width: 700px;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Mission & Vision */
+.about-mission {
+  background: #f5f5f5;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-mission h2 {
+  font-size: 30px;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.about-mission p {
+  font-size: 16px;
+  max-width: 800px;
+  margin: 0 auto 10px;
+  color: #444;
+}
+
+/* Timeline Section */
+.about-journey {
+  background: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-journey h2 {
+  font-size: 30px;
+  color: #2563eb;
+  margin-bottom: 30px;
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  max-width: 700px;
+  margin: auto;
+  text-align: left;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.timeline li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-size: 20px;
+  top: 0;
+}
+/* Our Story Section */
+.about-story {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-story h2 {
+  font-size: 30px;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.about-story p {
+  max-width: 800px;
+  margin: 0 auto 15px;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Newsletter Section */
+.newsletter {
+  background: #f0f4ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.newsletter h2 {
+  color: #2563eb;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.newsletter-form {
+  max-width: 500px;
+  margin: 0 auto 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.newsletter-form button {
+  background: #2563eb;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #1e3a8a;
+}
+
+.privacy-note {
+  font-size: 13px;
+  color: #888;
+}
+
+
+/***** End Section *****/
+
+/***** contact Section *****/ 
+
+/* FAQ Section */
+.faq {
+  background-color: #f9fafb;
+  padding: 60px 20px;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2563eb;
+  font-size: 30px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.faq-item {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.faq-item h4 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
+  font-size: 18px;
+}
+
+.faq-item p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+
+
+/***** End contact Section *****/
